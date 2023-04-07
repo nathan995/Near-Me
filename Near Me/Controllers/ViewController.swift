@@ -10,6 +10,8 @@ import MapKit
 
 class ViewController: UIViewController {
     
+    private var places : [PlaceAnnotation] = []
+    
     var locationManager: CLLocationManager?
     
     override func viewDidLoad() {
@@ -39,7 +41,7 @@ class ViewController: UIViewController {
         searchTextField.delegate = self
         searchTextField.layer.cornerRadius = 10
         searchTextField.clipsToBounds = true
-        searchTextField.backgroundColor = .white
+        searchTextField.backgroundColor = .systemBackground
         searchTextField.placeholder = "Search"
         searchTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         searchTextField.leftViewMode = .always
@@ -76,13 +78,13 @@ class ViewController: UIViewController {
         search.start {[weak self] response, error in
             guard let response = response, error == nil else { return }
             
-            let places = response.mapItems.map(PlaceAnnotation.init)
-            
-            places.forEach { place in
+            self?.places = response.mapItems.map(PlaceAnnotation.init)
+            self?.places.forEach { place in
                 self?.mapView.addAnnotation(place)
             }
-            
-            self?.presentPlacesSheet(places:places)
+            if let places = self?.places {
+                self?.presentPlacesSheet(places:places)
+            }
             print(response.mapItems)
         }
         
@@ -92,9 +94,11 @@ class ViewController: UIViewController {
         let placesTVC = PlacesTableViewController(userLocation: locationManager?.location ?? CLLocation.defaultLocation, places: places)
         placesTVC.modalPresentationStyle = .pageSheet
         
+        
         if let sheet = placesTVC.sheetPresentationController {
             sheet.prefersGrabberVisible = true
             sheet.detents = [.large(),.medium()]
+            
             present(placesTVC, animated: true)
         }
     }
@@ -146,8 +150,21 @@ extension ViewController : UITextFieldDelegate {
 
 
 extension ViewController : MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-//        guard let placeAnnotation = annotation as PlaceAnnotation else { return }
-//        
-//    }
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        
+        self.places = self.places.map { place in
+            place.isSelected = false
+            return place
+        }
+        
+        
+        guard let selectedAnnotation = annotation as? PlaceAnnotation else { return }
+        
+        
+        let placeAnnotation = self.places.first(where: {
+            $0.id == selectedAnnotation.id
+        })
+        placeAnnotation?.isSelected = true
+        presentPlacesSheet(places: self.places)
+    }
 }

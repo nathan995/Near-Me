@@ -31,6 +31,10 @@ class PlaceAnnotation : MKPointAnnotation {
         mapItem.placemark.location ?? CLLocation.defaultLocation
     }
     
+    var category : MKPointOfInterestCategory {
+        mapItem.pointOfInterestCategory ?? MKPointOfInterestCategory.store
+    }
+    
     var address : String {
         "\(mapItem.placemark.subThoroughfare ?? "") \(mapItem.placemark.thoroughfare ?? "") \(mapItem.placemark.locality ?? "") \(mapItem.placemark.countryCode ?? "")"
     }

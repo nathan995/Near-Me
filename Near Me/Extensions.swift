@@ -11,3 +11,15 @@ import CoreLocation
 extension CLLocation {
     static let defaultLocation = CLLocation (latitude: 36.063457, longitude: -95.880516)
 }
+
+
+extension String {
+    
+    var formatPhoneForCall: String {
+        self.replacingOccurrences(of: " " , with : "#")
+            .replacingOccurrences(of: "+", with: "")
+            .replacingOccurrences(of: "(", with: "")
+            .replacingOccurrences(of: ")", with: "")
+            .replacingOccurrences(of: "-" , with: "")
+    }
+}

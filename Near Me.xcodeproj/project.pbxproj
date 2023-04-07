@@ -16,6 +16,7 @@
 		5923DFBA29DF40A300B359C6 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923DFB929DF40A300B359C6 /* PlaceAnnotation.swift */; };
 		5923DFBC29DF42C100B359C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923DFBB29DF42C100B359C6 /* Extensions.swift */; };
 		5923DFBF29DF45CA00B359C6 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923DFBE29DF45CA00B359C6 /* PlacesTableViewController.swift */; };
+		5923DFC129DF804100B359C6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923DFC029DF804100B359C6 /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5923DFB929DF40A300B359C6 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
 		5923DFBB29DF42C100B359C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5923DFBE29DF45CA00B359C6 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		5923DFC029DF804100B359C6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				5923DFA829DF0F4800B359C6 /* ViewController.swift */,
 				5923DFBE29DF45CA00B359C6 /* PlacesTableViewController.swift */,
+				5923DFC029DF804100B359C6 /* PlaceDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			files = (
 				5923DFBA29DF40A300B359C6 /* PlaceAnnotation.swift in Sources */,
 				5923DFBC29DF42C100B359C6 /* Extensions.swift in Sources */,
+				5923DFC129DF804100B359C6 /* PlaceDetailViewController.swift in Sources */,
 				5923DFA929DF0F4800B359C6 /* ViewController.swift in Sources */,
 				5923DFA529DF0F4800B359C6 /* AppDelegate.swift in Sources */,
 				5923DFA729DF0F4800B359C6 /* SceneDelegate.swift in Sources */,
